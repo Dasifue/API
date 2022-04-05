@@ -1,0 +1,6 @@
+venv/
+.vscode/
+*.pyc
+
+main/settings.py
+!_migrations/__init__.py

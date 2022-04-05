@@ -1,0 +1,10 @@
+{% extends 'core.html' %}
+{% block content %}
+
+
+<form method="post" class='text-dark'> {% csrf_token %}
+    {{form}}
+    <button class ="btn btn-dark" type="sumbit" >Create</button>
+</form>
+
+{% endblock %}

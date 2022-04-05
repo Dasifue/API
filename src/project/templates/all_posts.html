@@ -1,0 +1,17 @@
+{% extends 'core.html' %}
+
+{% block content %}
+<a href="{% url 'project:create_post' %}" class="card-text text-dark">Create post</a>
+<section class="card-container">
+
+  {% for post in posts %}
+  <div class="card" >
+    <div class="card-body">
+      <p class="card-text text-dark">{{post.author}}</p>
+      <a href="{% url 'project:post_info' post_id=post.id %}" class="card-text text-dark">{{post.title}}</a>
+    </div>
+  </div>
+  {% endfor %}
+
+</section>
+{% endblock %}

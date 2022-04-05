@@ -1,0 +1,27 @@
+{% extends 'core.html' %}
+{% block content %}
+<section class="card-container">
+<p>Author - {{post.author}}</p>
+<p>Title  - {{post.title}}</p>
+<p>Link - {{post.link}}</p>
+<p>Upvotes - {{post.upvotes}}</p>
+<form action="" method="post"> {% csrf_token %}
+  <input type="submit" name="upvote" value="Upvote" />
+</form>
+<p>Creation date - {{post.creation_date}}</p>
+<a href="{% url 'project:delete_post' post_id=post.id %}" class="card-text text-dark">delete_post</a>
+
+<p><h4>Coments:</h4></p>
+<a href="{% url 'project:create_coment' post_id=post.id %}" class="card-text text-dark">Create coment</a>
+    {% for coment in coments %}
+    <div class="card" >
+        <div class="card-body">
+          <p class="card-text text-dark">Author - {{coment.author}}</p>
+          <p class="card-text text-dark">Coment - {{coment.content}}</p>
+          <a href="{% url 'project:delete_coment' coment_id=coment.id %}" class="card-text text-dark">Delete coment</a>
+        </div>
+      </div>
+      <p></p>
+    {% endfor %}
+</section>
+{% endblock %}
